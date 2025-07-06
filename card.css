@@ -1,0 +1,177 @@
+/* Holy Grail Layout */
+.holy-grail {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.holy-grail-body {
+    display: flex;
+    flex: 1;
+}
+
+.holy-grail-nav {
+    order: -1;
+    flex: 0 0 200px;
+    background: #f4f4f4;
+    padding: 20px;
+}
+
+.holy-grail-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.holy-grail-ads {
+    flex: 0 0 200px;
+    background: #f4f4f4;
+    padding: 20px;
+}
+
+/* Header & Footer */
+header {
+    background: #006341;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+footer {
+    background: #006341;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons i {
+    margin: 0 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+/* Recipe Cards */
+.recipe-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+    margin: 10px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 15px;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flip-card-front {
+    background-color: #fff;
+    color: #006341;
+    padding: 20px;
+}
+
+.flip-card-front img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.flip-card-front h2 {
+    margin: 10px 0;
+    font-size: 1.5em;
+}
+
+.flip-card-back {
+    background-color: #006341;
+    color: white;
+    transform: rotateY(180deg);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.flip-card-back h2 {
+    margin: 10px 0;
+    font-size: 1.3em;
+    border-bottom: 1px solid white;
+    padding-bottom: 5px;
+}
+
+.flip-card-back ul, .flip-card-back ol {
+    text-align: left;
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .holy-grail-body {
+        flex-direction: column;
+    }
+    
+    .holy-grail-nav, .holy-grail-ads {
+        flex: 0 0 auto;
+    }
+    
+    .recipe-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .flip-card {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+    
+    .flip-card {
+        height: 350px;
+    }
+    
+    .flip-card-back {
+        padding: 10px;
+    }
+}
